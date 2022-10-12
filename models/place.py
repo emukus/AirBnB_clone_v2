@@ -56,10 +56,10 @@ class Place(BaseModel, Base):
 
         @property
         def reviews(self):
-            """ returns list of review instances with place_id
+            ''' returns list of review instances with place_id
                 equals to the cyrrent Place.id
                 FileStorage relationship between Place and Review
-            """
+            '''
             from models import storage
             all_revs = storage.all(Review)
             lst = []
@@ -70,10 +70,10 @@ class Place(BaseModel, Base):
 
         @property
         def amenities(self):
-            """ returns the list of Amenity instances
+            ''' returns the list of Amenity instances
                 based on the attribute amenity_ids that
                 contains all Amenity.id linked to the Place
-            """
+            '''
             from models import storage
             all_amens = storage.all(Amenity)
             lst = []
@@ -84,10 +84,10 @@ class Place(BaseModel, Base):
 
         @amenities.setter
         def amenities(self, obj):
-            """ method for adding an Amenity.id to the
+            ''' method for adding an Amenity.id to the
                 attribute amenity_ids. accepts only Amenity
                 objects
-            """
+            '''
             if obj is not None:
                 if isinstance(obj, Amenity):
                     if obj.id not in self.amenity_ids:
