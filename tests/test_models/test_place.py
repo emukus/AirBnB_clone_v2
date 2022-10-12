@@ -71,7 +71,7 @@ class test_Place(test_basemodel):
                          type(None))
 
     def test_latitude(self):
-        """ testing place latitude attr"""
+        """ testing place latitud attr"""
         new = self.value()
         self.assertEqual(type(new.latitude), float if
                          os.getenv('HBNB_TYPE_STORAGE') != 'db' else

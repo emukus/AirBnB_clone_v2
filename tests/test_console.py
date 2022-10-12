@@ -136,7 +136,7 @@ class TestHBNBCommand(unittest.TestCase):
             cursor.execute('SELECT COUNT(*) FROM states;')
             res = cursor.fetchone()
             prev_count = int(res[0])
-            cons.onecmd('create State name="Nairobi"')
+            cons.onecmd('create State name="Enugu"')
             clear_stream(cout)
             cons.onecmd('count State')
             cnt = cout.getvalue().strip()
