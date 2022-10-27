@@ -3,7 +3,7 @@
 distributes an archive to your web servers."""
 
 from datetime import datetime
-from fabrric.api import datetime
+from fabric.api import env, local, put, run
 from os.path import isdir, exists
 env.hosts = ['54.90.7.215', '54.87.214.206']
 
