@@ -1,9 +1,11 @@
 #!/usr/bin/python3
-"""Fabric script (based on 1-pack_web_static.py) that distributes
-an archive to your web servers"""
+"""
+Fabric script (based on 1-pack_web_static.py) that distributes an
+archive to your web servers
+"""
 
+from fabric.api import put, run, env
 from os.path import exists
-from farbic.api import put, run, env
 env.hosts = ['54.90.7.215', '54.87.214.206']
 
 
@@ -16,7 +18,7 @@ def do_deploy(archive_path):
         no_ext = file_n.split(".")[0]
         path = "/data/web_static/releases/"
         put(archive_path, '/tmp/')
-        run('mkdir -p {}{}/'.format(path, no_ext)
+        run('mkdir -p {}{}/'.format(path, no_ext))
         run('tar -xzf /tmp/{} -C {}{}/'.format(file_n, path, no_ext))
         run('rm /tmp/{}'.format(file_n))
         run('mv {0}{1}/web_static/* {0}{1}/'.format(path, no_ext))
